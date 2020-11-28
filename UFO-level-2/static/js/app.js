@@ -1,3 +1,4 @@
+// --------------------------SET UP THE MAIN LANDING PAGE--------------------------
 // from data.js
 // data: datetime, city, state, country, shape, durationMinutes, comments
 let tableData = data;
@@ -18,9 +19,7 @@ tableData.forEach((siting) => {
     });
 });
 
-// CREATE THE DROPDOWN ITEMS
-// headers for filters:
-let headers = ['Date','City','State','Country','Shape'];
+// --------------------------CREATE THE MULTIPLE FILTERS/DROPDOWN ITEMS--------------------------
 // gather unique array inputs
 let dateUnique = [], cityUnique = [], stateUnique = [], countryUnique = [], shapeUnique = [];
 // create the list of filters
@@ -46,17 +45,18 @@ for(let i=0; i<tableData.length; i++) {
         shapeUnique.push(tableData[i].shape);
     };
 };
-console.log(dateUnique);
-console.log(cityUnique);
-console.log(stateUnique);
-console.log(countryUnique);
-console.log(shapeUnique);
+// console.log(dateUnique);
+// console.log(cityUnique);
+// console.log(stateUnique);
+// console.log(countryUnique);
+// console.log(shapeUnique);
 
 
 // inputs will need to be transformed to lower case
 
 
-// SELECT ON FILTERED ITEMS:
+
+// --------------------------SELECT ON FILTERED ITEMS--------------------------
 // get button reference
 let buttonFilter = d3.select("#filter-btn");
 // get input reference
@@ -71,13 +71,24 @@ function searchDate(){
     console.log("the button was clicked or the filter was entered")
 
     // select input element
-    let inputElement = d3.select("#datetime");
+    let elementDate = d3.select("#datetime");
+    let elementCity = d3.select("#city");
+    let elementState = d3.select("#state");
+    let elementCountry = d3.select("#country");
+    let elementShape = d3.select("#shape");
     // get value of input
-    let inputValue = inputElement.property("value");
+    let inputDate = elementDate.property("value");
+    let inputCity = elementCity.property("value").toLowerCase();
+    let inputState = elementState.property("value").toLowerCase();
+    let inputCountry = elementCountry.property("value").toLowerCase();
+    let inputShape = elementShape.property("value").toLowerCase();
+
+    // handle multiple filters
+
 
     // filter the tableData by the inputValue
     let filterData = tableData.filter(sighting => sighting.datetime === inputValue);
-    console.log(filterData);
+    // console.log(filterData);
 
     // remove exisiting data from the table
     tbody.html("");
