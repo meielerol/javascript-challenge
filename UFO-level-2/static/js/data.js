@@ -1,3 +1,4 @@
+// this is for UFO-level-2
 var data = [{
     datetime: "1/1/2010",
     city: "benton",

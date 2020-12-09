@@ -1,3 +1,5 @@
+// this is for UFO-level-2
+
 // --------------------------SET UP THE MAIN LANDING PAGE--------------------------
 // from data.js
 // data: datetime, city, state, country, shape, durationMinutes, comments
@@ -50,7 +52,7 @@ function searchFilters(){
 
     // handle multiple filters by filtering entries through matching sets in the data
     if (inputDate != ""){
-        inputFilters = inputFilters.filter(entry.datetime === inputDate);
+        inputFilters = inputFilters.filter(entry => entry.datetime === inputDate);
     }
     if (inputCity != "") {
         inputFilters = inputFilters.filter(entry => entry.city === inputCity);     
